@@ -1,6 +1,8 @@
-# 📚 Library Management System
+# Library Management System
 
 A Spring Boot-based **Library Management System** that allows librarians to efficiently manage books by **adding, updating, searching, and deleting records** while maintaining book availability status.
+
+---
 
 ## Features
 
@@ -10,10 +12,12 @@ A Spring Boot-based **Library Management System** that allows librarians to effi
 - **Delete a Book** - Remove a book from the catalog.
 - **View All Books** - List all books with their details.
 - **Validation & Exception Handling** - Ensures valid input and handles errors gracefully.
+- **Unit Testing** - Includes **JUnit 5 & Mockito tests** for service layer validation.
+- **Swagger API Documentation** - Provides an interactive UI to test API endpoints.
 
 ---
 
-## 🛠 Installation & Setup
+## Installation & Setup
 
 ### **1️⃣ Clone the Repository**
 ```sh
@@ -88,29 +92,52 @@ Content-Type: application/json
 
 ---
 
-## Technologies Used
+## Unit Testing
 
-- **Java 21**  
-- **Spring Boot 3.x**  
-- **Spring Data JPA (Hibernate)**  
-- **MySQL**  
-- **Maven**  
+### **Technologies Used for Testing:**
+- **JUnit 5** - For writing test cases.
+- **Mockito** - For mocking repository dependencies.
+- **Spring Boot Test** - To test service layer logic.
+
+
+### **Tested Methods**
+| Method | Test Cases |
+|--------|------------|
+| `viewAllBooks()` | ✅ Returns all books |
+| `addBook()` | ✅ Adds a book <br> ❌ Throws `ResourceAlreadyExistsException` for duplicate ID <br> ❌ Throws `IllegalArgumentException` for missing fields |
+| `searchBooks()` | ✅ Finds book by ID/title <br> ❌ Throws `ResourceNotFoundException` if not found |
+| `updateBook()` | ✅ Updates book details <br> ❌ Throws `ResourceNotFoundException` if book doesn't exist |
+| `deleteBook()` | ✅ Deletes a book <br> ❌ Throws `ResourceNotFoundException` if book doesn't exist |
+
+ **Tests ensure service layer correctness and validation.**
 
 ---
 
+## 📊 Technologies Used
 
-## **Next Steps**
-- [ ] Implement Unit Tests  
-- [ ] Add Swagger Documentation  
-- [ ] Deploy to Railway  
+- **Java 21**
+- **Spring Boot 3.x**
+- **Spring Data JPA (Hibernate)**
+- **MySQL**
+- **Maven**
+- **JUnit 5 & Mockito**
+- **Swagger UI**
+
+---
+
+## Challenges Faced
+- **Database Connectivity Issues**: Debugging connection failures with **Railway MySQL**.
+- **Deployment Errors**: Resolving **JDK version mismatch** during deployment in Railway.app.
+- **Environment Variables Not Loading**: Ensuring correct **MySQL credentials injection**.
+- **Unit Testing Complex Scenarios**: Handling **exception cases** like `ResourceNotFoundException`.
 
 ---
 
 ## **Summary**
-- **Spring Boot-based Library Management System** with CRUD operations.  
-- **Database: MySQL**, **Framework: Spring Boot** 
-- **API Endpoints** for book management.  
-- **Installation, running, and testing instructions included**.  
+- **Spring Boot-based Library Management System** with CRUD operations.
+- **Database: MySQL**, **Framework: Spring Boot**
+- **API Endpoints** for book management.
+- **Unit Testing, Exception Handling, & Deployment on Railway.**
 
 🚀 **Ready to contribute? Fork the repo and start coding!**
 
