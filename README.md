@@ -139,6 +139,7 @@ Content-Type: application/json
 - **Deployment Errors**: Resolving **JDK version mismatch** during deployment.
 - **Environment Variables Not Loading**: Ensuring correct **MySQL credentials injection**.
 - **Unit Testing Complex Scenarios**: Handling **exception cases** like `ResourceNotFoundException`.
+- **Swagger api not working properly with deployment link as it supports http without any configuration and deployment link supports https**
 
 
 ## **Summary**

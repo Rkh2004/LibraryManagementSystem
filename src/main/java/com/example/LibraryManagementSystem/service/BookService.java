@@ -127,6 +127,9 @@ public class BookService {
      * @throws IllegalArgumentException If required fields are missing.
      */
     private void validateBookDto(BookDto bookDto) {
+
+        // Assumption: we assume that Activity Status will be selected via radio button, drop down menu or any similar things so we don't write exception handling for it.
+
         if (bookDto.getTitle() == null || bookDto.getTitle().isBlank()) {
             throw new IllegalArgumentException("Title cannot be empty");
         }
