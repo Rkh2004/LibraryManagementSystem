@@ -99,6 +99,7 @@ Content-Type: application/json
 - **Mockito** - For mocking repository dependencies.
 - **Spring Boot Test** - To test service layer logic.
 
+---
 
 ### **Tested Methods**
 | Method | Test Cases |
@@ -109,11 +110,11 @@ Content-Type: application/json
 | `updateBook()` | ✅ Updates book details <br> ❌ Throws `ResourceNotFoundException` if book doesn't exist |
 | `deleteBook()` | ✅ Deletes a book <br> ❌ Throws `ResourceNotFoundException` if book doesn't exist |
 
- **Tests ensure service layer correctness and validation.**
+**Tests ensure service layer correctness and validation.**
 
 ---
 
-## 📊 Technologies Used
+## Technologies Used
 
 - **Java 21**
 - **Spring Boot 3.x**
@@ -125,13 +126,20 @@ Content-Type: application/json
 
 ---
 
+## Assumptions Taken
+- We assume that the **frontend provides a dropdown menu** for selecting **Availability Status** (`AVAILABLE` or `CHECKED_OUT`), so we do **not check spelling, null values, or case sensitivity**.
+- We assume that **Book IDs are unique and manually provided by the librarian**, so **auto-generation is not implemented for it**.
+- The **title and author fields are required**, but **genre is optional**.
+- The API assumes that **search by title can return multiple results**, while **search by Book ID returns only one book**.
+
+---
+
 ## Challenges Faced
 - **Database Connectivity Issues**: Debugging connection failures with **Railway MySQL**.
-- **Deployment Errors**: Resolving **JDK version mismatch** during deployment in Railway.app.
+- **Deployment Errors**: Resolving **JDK version mismatch** during deployment.
 - **Environment Variables Not Loading**: Ensuring correct **MySQL credentials injection**.
 - **Unit Testing Complex Scenarios**: Handling **exception cases** like `ResourceNotFoundException`.
 
----
 
 ## **Summary**
 - **Spring Boot-based Library Management System** with CRUD operations.
@@ -139,5 +147,4 @@ Content-Type: application/json
 - **API Endpoints** for book management.
 - **Unit Testing, Exception Handling, & Deployment on Railway.**
 
-🚀 **Ready to contribute? Fork the repo and start coding!**
 
